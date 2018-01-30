@@ -1,0 +1,12 @@
+{
+    "name": "skillpathway/mathematician",
+    "description": "A layer on top of BCMath tthat deals with fractional calculations",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Matthew Collison",
+            "email": "matthew@sixteenstudio.com"
+        }
+    ],
+    "require": {}
+}
