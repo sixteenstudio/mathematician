@@ -13,7 +13,7 @@
         "files": ["mylibrary/functions.php"],
 
         "psr-4": {
-            "Sixteenstudio\\Mathematician": "src"
+            "Sixteenstudio\\Mathematician\\": "src"
         }
     }
 }

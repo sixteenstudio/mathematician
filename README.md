@@ -4,7 +4,7 @@ A layer on top of BCMath that deals with fractional calculations
 ## Requirements
 The BCMath PHP extension needs to be required in order for this to work.
 
-This package has been developed for PHP 7.1^
+This package has been developed for PHP 7.0^
 
 ## Usage
 Instead of using standard BCMath functions such as `bcadd` and `bcsub`, use the `math_` functions provided within the package.
