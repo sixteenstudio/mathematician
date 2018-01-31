@@ -1,5 +1,5 @@
 {
-    "name": "skillpathway/mathematician",
+    "name": "sixteenstudio/mathematician",
     "description": "A layer on top of BCMath that deals with fractional calculations",
     "type": "library",
     "authors": [
