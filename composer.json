@@ -10,7 +10,7 @@
     ],
     "require": {},
     "autoload": {
-        "files": ["helpers/helpers.php"],
+        "files": ["src/helpers/helpers.php"],
 
         "psr-4": {
             "Sixteenstudio\\Mathematician\\": "src"
