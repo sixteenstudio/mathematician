@@ -116,7 +116,7 @@ class Fraction
             // TODO: Detect a remainder so we can accurately do part of the process, and use non-fractional multiplication
             // for the remainder parts
 
-            $this->decimalValue = bcmul($this->ofNumber, bcdiv($this->bottomPart, $this->topPart, 20), 20);
+            $this->decimalValue = bcmul($this->ofNumber, bcdiv($this->topPart, $this->bottomPart, 20), 20);
             $this->resolved = true;
         }
 

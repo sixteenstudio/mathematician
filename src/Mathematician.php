@@ -87,7 +87,7 @@ class Mathematician
      * @return Number
      * @throws \Exception
      */
-    public function applyOperation(string $operation, array $operands, integer $scale): Number
+    public function applyOperation(string $operation, array $operands, int $scale): Number
     {
         $number = null;
         // TODO: Make this function more DRY
@@ -126,12 +126,21 @@ class Mathematician
 
                     // Get the two top parts multiplied by eachother & add the difference of this to the first top part
                     // fraction to get the new result
-                    $topPartIncreaseBy = bcsub($fractionOne->getTopPart(), bcmul($fractionOne->getTopPart(), $fractionTwo->getTopPart(), 0), 0);
+                    $topPartIncreaseBy = bcsub($fractionOne->getTopPart(), bcmul($fractionOne->getTopPart(), $fractionTwo->getTopPart(), 20), 0);
 
                     $number = clone $operands[0];
                     $number->getFraction()->increaseTopPart($topPartIncreaseBy);
+                } elseif ($operands[0]->isFraction() || $operands[1]->isFraction()) {
+                    /** @var Number $fractionNumber */
+                    $fractionNumber = $operands[0]->isFraction() ? $operands[0] : $operands[1];
+                    $multiplier = $operands[0]->isFraction() ? $operands[1] : $operands[0];
+                    $newTopPart = bcmul($fractionNumber->getFraction()->getTopPart(), $multiplier, 20);
+
+                    return new Number($newTopPart,
+                        $fractionNumber->getFraction()->getBottomPart(),
+                        $fractionNumber->getFraction()->getOf());
                 } else {
-                    $value = bcmul($operands[0]->getDecimalValue(), $operands[1]->getDecimalValue());
+                    $value = bcmul($operands[0]->getDecimalValue(), $operands[1]->getDecimalValue(), 20);
                     $number = new Number($value);
                 }
                 break;
@@ -171,8 +180,6 @@ class Mathematician
             } else {
                 $numberOperands[] = $operand;
             }
-
-            $numberOperands[] = new Number($operand);
         }
 
         return $numberOperands;

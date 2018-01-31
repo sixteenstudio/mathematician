@@ -76,5 +76,5 @@ class Number
     {
         return $this->getDecimalValue();
     }
-    
+
 }
